@@ -1,37 +1,44 @@
 const path = require('path')
 require('dotenv').config({ path: path.join(__dirname, '../.env') })
+const {
+  getRandomDate,
+  getRandomCountry,
+  getRandomContinent,
+  getRandomScore,
+  getTitle,
+  getRandomAnswers,
+} = require('./seedHelpers')
 
-// Seeds file that remove all users and create 2 new users
+// Seeds file that remove all existing answers and generate another 50 with random values
+// only for test purposes
 
-// To execute this seed, run from the root of the project
 // $ node bin/seeds.js
 
 const mongoose = require('mongoose')
-const bcrypt = require('bcrypt')
-const User = require('../models/User')
-
-const bcryptSalt = 10
-
+const QuizAnswer = require('../models/QuizAnswer')
 require('../configs/database')
 
-let users = [
-  {
-    username: 'alice',
-    password: bcrypt.hashSync('alice', bcrypt.genSaltSync(bcryptSalt)),
-  },
-  {
-    username: 'bob',
-    password: bcrypt.hashSync('bob', bcrypt.genSaltSync(bcryptSalt)),
-  },
-]
+const mockAnswers = []
+for (let i = 0; i < 50; i++) {
+  let score = getRandomScore()
 
-User.deleteMany()
-  .then(() => {
-    return User.create(users)
+  mockAnswers.push({
+    dateCompleted: getRandomDate(),
+    country: getRandomCountry(),
+    continent: getRandomContinent(),
+    score,
+    title: getTitle(score),
+    answers: getRandomAnswers(score),
   })
-  .then(usersCreated => {
-    console.log(`${usersCreated.length} users created with the following id:`)
-    console.log(usersCreated.map(u => u._id))
+}
+
+QuizAnswer.deleteMany() // this will fail if db is empty
+  .then(() => {
+    return QuizAnswer.create(mockAnswers)
+  })
+  .then(answersCreated => {
+    console.log(`${answersCreated.length} users created with the following id:`)
+    console.log(answersCreated.map(a => a._id))
   })
   .then(() => {
     // Close properly the connection to Mongoose
