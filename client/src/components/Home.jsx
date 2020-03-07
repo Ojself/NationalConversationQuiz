@@ -1,28 +1,21 @@
-import React, { PureComponent } from 'react'
-
-import { questionsData } from '../data/questions'
-
-import { useSelector } from 'react-redux'
-
+import React from 'react'
 import Background from './molecules/Background'
-import Progress from './molecules/Progress'
-import Question from './molecules/Question'
-import Answer from './molecules/Answer'
-import NextButton from './molecules/NextButton'
+import './Pages.scss'
+import { Link } from 'react-router-dom'
 
+import { Button } from 'reactstrap'
 const Home = () => {
-  const progressValue = useSelector(state => state.progress)
-  /* const dispatch = useDispatch() */
-
   return (
     <div className="container">
       <Background />
-      <Progress />
-      <Question text={questionsData[progressValue].question} />
-      {questionsData[progressValue].answers.map((q, i) => (
-        <Answer key={i} text={q} />
-      ))}
-      <NextButton />
+      <div className="d-flex flex-column align-items-center">
+        <img src="../../assets/promoNbubble.png" alt="NSW defacto" />
+        <p className="home-display-text">National Conversation Week</p>
+        <p className="home-display-text">Financial Personality quiz</p>
+        <Link to="/quiz">
+          <Button className={'bg-warning text-light border-0'}> Start </Button>
+        </Link>
+      </div>
     </div>
   )
 }

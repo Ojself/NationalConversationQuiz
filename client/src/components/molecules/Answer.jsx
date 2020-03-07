@@ -1,10 +1,14 @@
 import React from 'react'
 import './Molecules.scss'
-/* selected color: #655e58 */
+
 const Answer = props => {
+  const backgroundColor = props.selected ? '#655e58' : '#f9f9f2'
   return (
     <div className="container">
-      <div className="question d-flex text-center justify-content-center py-5 my-2 ">
+      <div
+        style={{ backgroundColor: backgroundColor }}
+        className="d-flex text-center justify-content-center py-5 my-2 "
+      >
         <p className="text-muted">{props.text}</p>
       </div>
     </div>
