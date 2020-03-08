@@ -2,7 +2,9 @@ import React from 'react'
 
 import { questionsData } from '../data/questions'
 
-import { useSelector } from 'react-redux'
+import { selectedAnswer } from '../actions'
+
+import { useSelector, useDispatch } from 'react-redux'
 
 import Background from './molecules/Background'
 import Progress from './molecules/Progress'
@@ -11,30 +13,29 @@ import Answer from './molecules/Answer'
 import NextButton from './molecules/NextButton'
 
 /* store selected answer and set in store */
-const handleClick = n => {
-  console.log(n)
-}
 
 const Quiz = () => {
-  const progressValue = useSelector(state => state.progress)
+  const dispatch = useDispatch()
+
+  const currentProgress = useSelector(state => state.progress)
 
   return (
     <div className="container">
       <Background />
       <div className="container">
         <Progress />
-        <Question text={questionsData[progressValue].question} />
-        {questionsData[progressValue].answers.map((q, i) => (
+        <Question text={questionsData[currentProgress].question} />
+        {questionsData[currentProgress].answers.map((q, i) => (
           <div
             key={i}
-            onClick={jarle => {
-              handleClick(i)
+            onClick={() => {
+              dispatch(selectedAnswer(i))
             }}
           >
-            <Answer text={q} />
+            <Answer order={i} text={q} />
           </div>
         ))}
-        <NextButton progressValue={progressValue} />
+        <NextButton currentProgress={currentProgress} />
       </div>
     </div>
   )

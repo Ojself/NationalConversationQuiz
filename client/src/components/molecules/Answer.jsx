@@ -1,15 +1,19 @@
 import React from 'react'
-import './Molecules.scss'
+import { useSelector } from 'react-redux'
 
 const Answer = props => {
-  const backgroundColor = props.selected ? '#655e58' : '#f9f9f2'
+  const selectedAnswer = useSelector(state => state.selectedAnswer)
+
+  const backgroundColor = selectedAnswer === props.order ? '#655e58' : '#f9f9f2'
+  const fontColor = selectedAnswer === props.order ? 'text-light' : 'text-muted'
+
   return (
     <div className="container">
       <div
         style={{ backgroundColor: backgroundColor }}
         className="d-flex text-center justify-content-center py-5 my-2 "
       >
-        <p className="text-muted">{props.text}</p>
+        <p className={fontColor}>{props.text}</p>
       </div>
     </div>
   )
