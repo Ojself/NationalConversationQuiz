@@ -23,9 +23,7 @@ router.get('/wakeup', async (req, res, next) => {
 })
 
 router.get('/statistics', async (req, res, next) => {
-  const now = Date.now(new Date())
   let statistics
-
   try {
     statistics = await QuizAnswer.find().lean()
   } catch (e) {
@@ -44,30 +42,21 @@ router.post('/saveAnswers', async (req, res, next) => {
   const now = Date.now(new Date())
   console.log(req.body, 'req.body')
   // validate information
-  // get country and continent from ip
+
+  const { ip } = req // for later use
+  const { answers } = req.body // [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
   const data = {
     dateCompleted: now,
-    country: '',
+    country: 'Germany',
     continent: '',
-    score: 0,
-    title: '',
-    answers: {
-      0: 0,
-      1: 0,
-      2: 0,
-      3: 0,
-      4: 0,
-      5: 0,
-      6: 0,
-      7: 0,
-    },
+    answers,
   }
   const answer = new QuizAnswer(data)
   answer.save().then(dbResult => console.log(dbResult, 'dbResult'))
 
   const message = 'Success, your stats has been posted!'
-  res.status(200).json({
+  res.status(201).json({
     message,
   })
 })

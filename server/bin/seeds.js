@@ -4,8 +4,7 @@ const {
   getRandomDate,
   getRandomCountry,
   getRandomContinent,
-  getRandomScore,
-  getTitle,
+
   getRandomAnswers,
 } = require('./seedHelpers')
 
@@ -20,15 +19,11 @@ require('../configs/database')
 
 const mockAnswers = []
 for (let i = 0; i < 50; i++) {
-  let score = getRandomScore()
-
   mockAnswers.push({
     dateCompleted: getRandomDate(),
     country: getRandomCountry(),
-    continent: getRandomContinent(),
-    score,
-    title: getTitle(score),
-    answers: getRandomAnswers(score),
+    /* continent: getRandomContinent(), */
+    answers: getRandomAnswers(),
   })
 }
 
@@ -41,7 +36,6 @@ QuizAnswer.deleteMany() // this will fail if db is empty
     console.log(answersCreated.map(a => a._id))
   })
   .then(() => {
-    // Close properly the connection to Mongoose
     mongoose.disconnect()
   })
   .catch(err => {

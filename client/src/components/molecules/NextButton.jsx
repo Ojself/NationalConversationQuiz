@@ -26,12 +26,13 @@ const NextButton = props => {
   const buttons =
     currentProgress < 9 ? (
       <Button
+        style={buttonsStyle.primary}
         disabled={selectedAnswer === null}
         onClick={() => {
           dispatch(progress())
           dispatch(addScore(selectedAnswer))
         }}
-        className="bg-warning text-light border border-white w-25"
+        className="bg-warning text-light border border-white"
       >
         NEXT
       </Button>
@@ -39,7 +40,7 @@ const NextButton = props => {
       <Link
         onClick={() => sendDataToDb(scoreFromState)}
         to="/results"
-        className="btn bg-warning text-light border border-white w-25"
+        className="btn bg-warning text-light border border-white"
       >
         FINISH
       </Link>
@@ -47,6 +48,13 @@ const NextButton = props => {
   return (
     <div className="container d-flex justify-content-center ">{buttons}</div>
   )
+}
+
+const buttonsStyle = {
+  primary: {
+    minWidth: '15vmin',
+    maxWidth: '30vmin',
+  },
 }
 
 export default NextButton
