@@ -28,7 +28,7 @@ export default {
       .catch(errHandler)
   },
 
-  wakeUp() {
+  getStatistics() {
     return service
       .get('/statistics')
       .then(res => res.data)

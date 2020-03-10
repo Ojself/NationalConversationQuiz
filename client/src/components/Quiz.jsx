@@ -21,8 +21,8 @@ const Quiz = () => {
 
   return (
     <div className="container">
-      <Background />
-      <div className="container">
+      <Background src={questionsData[currentProgress].img} />
+      <div className="d-flex flex-column align-items-center justify-content-center">
         <Progress />
         <Question text={questionsData[currentProgress].question} />
         {questionsData[currentProgress].answers.map((q, i) => (

@@ -1,15 +1,29 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import './Molecules.scss'
 
-const Progress = props => {
+const Progress = () => {
   const progressValue = useSelector(state => state.progress)
 
   return (
-    <div className="container">
-      <span className="progress">{progressValue + 1}/8</span>
+    <div style={progressStyle.container} className="container">
+      <p style={progressStyle.text}>{progressValue + 1}/10</p>
     </div>
   )
+}
+
+const progressStyle = {
+  container: {
+    backgroundColor: '#ffffff',
+    maxWidth: '100vw',
+    margin: 'auto',
+    color: '#fab701',
+  },
+  text: {
+    height: '100%',
+    marginTop: '10vh',
+    marginLeft: '17vw',
+    fontSize: '2vmin',
+  },
 }
 
 export default Progress

@@ -1,8 +1,10 @@
-const addScoreReducer = (state = 0, action) => {
+const addScoreReducer = (state = [], action) => {
   const { type, payload } = action
   switch (type) {
     case 'ADD_SCORE':
-      return state + payload
+      const newState = state.slice(0)
+      newState.push(payload)
+      return (state = newState)
     default:
       return state
   }
