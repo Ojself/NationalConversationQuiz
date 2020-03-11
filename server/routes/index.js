@@ -33,9 +33,11 @@ router.get('/statistics', async (req, res, next) => {
       message: `Something went wrong: ${JSON.stringify(e)}`,
     })
   }
+  const data = calculateData(statistics)
 
   res.status(200).json({
-    statistics,
+    totalResult: data[0],
+    dividedResult: data[1],
   })
 })
 
@@ -57,7 +59,7 @@ router.post('/saveAnswers', async (req, res, next) => {
   const data = {
     dateCompleted: now,
     country: 'Germany',
-    continent: '',
+    continent: 'Europe',
     answers,
   }
   const answer = new QuizAnswer(data)
@@ -68,5 +70,41 @@ router.post('/saveAnswers', async (req, res, next) => {
     message,
   })
 })
+
+const calculateData = dataset => {
+  const totalResult = [0, 0, 0]
+  const dividedResult = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ]
+  for (let i = 0; i < dataset.length; i++) {
+    dataset[i].answers.forEach((a, j) => {
+      console.log(i, a, 'a')
+      switch (a) {
+        case 0:
+          totalResult[0] += 1
+          dividedResult[j][0] += 1
+        case 1:
+          totalResult[1] += 1
+          dividedResult[j][1] += 1
+        case 2:
+          totalResult[2] += 1
+          dividedResult[j][2] += 1
+        default:
+          console.error('oops')
+      }
+    })
+  }
+  console.log(totalResult, dividedResult)
+  return [totalResult, dividedResult]
+}
 
 module.exports = router
