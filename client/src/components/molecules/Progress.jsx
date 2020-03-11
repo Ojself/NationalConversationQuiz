@@ -14,7 +14,7 @@ const Progress = () => {
 const progressStyle = {
   container: {
     backgroundColor: '#ffffff',
-
+    width: '100%',
     color: '#fab701',
   },
   text: {

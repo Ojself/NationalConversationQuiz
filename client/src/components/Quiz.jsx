@@ -26,7 +26,7 @@ const Quiz = () => {
         style={quizStyle.contentContainer}
         className="d-flex flex-column align-items-center justify-content-center"
       >
-        <Progress /> {/* make two divs */}
+        <Progress />
         <Question text={questionsData[currentProgress].question} />
         {questionsData[currentProgress].answers.map((q, i) => (
           <div
