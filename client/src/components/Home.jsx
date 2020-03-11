@@ -11,13 +11,20 @@ const Home = () => {
       <Background src={`../../assets/top_imgs/top_img_00@2x.png`} />
       <div
         style={homeStyle.contentContainer}
-        className="d-flex flex-column align-items-center"
+        className="d-flex flex-column align-items-center my-5"
       >
-        <img src="../../assets/promoNbubble.png" alt="NSW defacto" />
+        <img
+          style={homeStyle.img}
+          src="../../assets/promoNbubble@2x.png"
+          alt="NSW defacto"
+        />
+        <div className="w-100 my-5"></div>
         <p style={homeStyle.text}>National Conversation Week</p>
         <p style={homeStyle.text}>Financial Personality quiz</p>
-        <Link to="/quiz">
+
+        <Link style={homeStyle.link} to="/quiz">
           <Button
+            style={homeStyle.button}
             onClick={() => api.wakeUp()}
             className={'bg-warning text-light border-0'}
           >
@@ -40,9 +47,24 @@ const homeStyle = {
     maxWidth: '60%',
     margin: '0 auto',
   },
+  img: {
+    width: '40%',
+    height: 'auto',
+  },
   text: {
-    fontSize: '2vmin',
+    textAlign: 'center',
+    marginTop: '-2vmin',
+    fontSize: '3vmin',
     color: '#5c5c5c',
+  },
+  link: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  button: {
+    padding: '2% 0',
+    width: '30%',
   },
 }
 
