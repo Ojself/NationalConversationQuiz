@@ -11,8 +11,7 @@ const sendDataToDb = async score => {
   // api
   console.log(score, 'api')
 
-  /* await api.postScore(score) */
-  return false
+  return api.postScore(score)
 }
 
 const NextButton = props => {

@@ -4,7 +4,7 @@ const router = express.Router()
 const QuizAnswer = require('../models/QuizAnswer')
 
 router.get('/wakeup', async (req, res, next) => {
-  const now = Date.now(new Date())
+  const now = new Date(Date.now())
   let dbStatus
   try {
     dbStatus = await QuizAnswer.find().lean()
@@ -14,8 +14,9 @@ router.get('/wakeup', async (req, res, next) => {
       message: `Something went wrong: ${JSON.stringify(e)}`,
     })
   }
-  const message = `${now}: Server status: OK --- Database status: ${!dbStatus &&
-    'NOT'} OK`
+  const message = `${now}: Server status: OK --- Database status: ${
+    !dbStatus ? 'NOT' : ''
+  }OK`
 
   res.status(200).json({
     message,
@@ -44,8 +45,15 @@ router.post('/saveAnswers', async (req, res, next) => {
   // validate information
 
   const { ip } = req // for later use
-  const { answers } = req.body // [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  const answers = req.body // [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+  console.log(ip, 'ip')
 
+  if (!answers || answers.length < 9 || answers.length > 11) {
+    // to prevent too big requests
+    res.status(406).json({
+      message: `Missing params`,
+    })
+  }
   const data = {
     dateCompleted: now,
     country: 'Germany',

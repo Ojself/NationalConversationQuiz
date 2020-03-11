@@ -1,8 +1,10 @@
 import React from 'react'
 import Background from './molecules/Background'
 import { Link } from 'react-router-dom'
-
 import { Button } from 'reactstrap'
+
+import api from '../api'
+
 const Home = () => {
   return (
     <div style={homeStyle.container}>
@@ -15,7 +17,12 @@ const Home = () => {
         <p style={homeStyle.text}>National Conversation Week</p>
         <p style={homeStyle.text}>Financial Personality quiz</p>
         <Link to="/quiz">
-          <Button className={'bg-warning text-light border-0'}> Start </Button>
+          <Button
+            onClick={() => api.wakeUp()}
+            className={'bg-warning text-light border-0'}
+          >
+            Start
+          </Button>
         </Link>
       </div>
     </div>

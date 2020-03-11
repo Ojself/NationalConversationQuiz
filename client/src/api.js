@@ -37,7 +37,7 @@ export default {
 
   postScore(body) {
     return service
-      .post('/postscore', body)
+      .post('/saveAnswers', body)
       .then(res => res.data)
       .catch(errHandler)
   },

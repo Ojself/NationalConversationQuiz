@@ -1,8 +1,8 @@
 /* Calculates the index of 3 different results based upon the users answers */
 import { resultData } from '../data/results'
 export const determineCharacter = score => {
-  /* const characterNames = ['budgetbobby', 'savvysam', 'laidbacklee']
-  const url = window.location.href.toLowerCase()
+  /* const characterNames = ['budgetbobby' 'savvysam', 'laidbacklee']
+  const const url = window.location.href.toLowerCase()
   let tempIndex
   if (
     characterNames.some((c, i) => {
@@ -45,10 +45,16 @@ export const calculateResultIndex = userScore => {
     return b[1] - a[1]
   })
 
-  const firstKey = sorted[0][0],
-    secondKey = sorted[1][0],
-    firstValue = sorted[0][1],
-    secondValue = sorted[1][1]
+  console.log(sorted.length, 'sorted') // if all is the same
+
+  const firstKey = sorted[0][0]
+  if (!sorted[1]) {
+    // incase user chooses all the same questions
+    return firstKey
+  }
+  const secondKey = sorted[1][0]
+  const firstValue = sorted[0][1]
+  const secondValue = sorted[1][1]
 
   if (firstValue > secondValue) {
     // one clear winner
