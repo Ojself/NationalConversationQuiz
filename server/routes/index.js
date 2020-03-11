@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-
+const axios = require('axios')
 const QuizAnswer = require('../models/QuizAnswer')
 
 router.get('/wakeup', async (req, res, next) => {
@@ -18,7 +18,7 @@ router.get('/wakeup', async (req, res, next) => {
     !dbStatus ? 'NOT' : ''
   }OK`
 
-  res.status(200).json({
+  return res.status(200).json({
     message,
   })
 })
@@ -33,33 +33,34 @@ router.get('/statistics', async (req, res, next) => {
       message: `Something went wrong: ${JSON.stringify(e)}`,
     })
   }
-  const data = calculateData(statistics)
 
-  res.status(200).json({
-    totalResult: data[0],
-    dividedResult: data[1],
+  const countries = getCountriesAvailable(statistics)
+
+  return res.status(200).json({
+    statistics,
+    countries,
   })
 })
 
 router.post('/saveAnswers', async (req, res, next) => {
   const now = Date.now(new Date())
-  console.log(req.body, 'req.body')
   // validate information
 
-  const { ip } = req // for later use
+  const { ip } = req // not saved.
   const answers = req.body // [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-  console.log(ip, 'ip')
 
   if (!answers || answers.length < 9 || answers.length > 11) {
     // to prevent too big requests
     res.status(406).json({
-      message: `Missing params`,
+      message: `Missing body`,
     })
   }
+  const countryData = await getCountry(ip)
+
   const data = {
     dateCompleted: now,
-    country: 'Germany',
-    continent: 'Europe',
+    country: countryData.country,
+    continent: countryData.continent,
     answers,
   }
   const answer = new QuizAnswer(data)
@@ -71,40 +72,36 @@ router.post('/saveAnswers', async (req, res, next) => {
   })
 })
 
-const calculateData = dataset => {
-  const totalResult = [0, 0, 0]
-  const dividedResult = [
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-    [0, 0, 0],
-  ]
+const getCountriesAvailable = dataset => {
+  const countrySet = new Set()
   for (let i = 0; i < dataset.length; i++) {
-    dataset[i].answers.forEach((a, j) => {
-      console.log(i, a, 'a')
-      switch (a) {
-        case 0:
-          totalResult[0] += 1
-          dividedResult[j][0] += 1
-        case 1:
-          totalResult[1] += 1
-          dividedResult[j][1] += 1
-        case 2:
-          totalResult[2] += 1
-          dividedResult[j][2] += 1
-        default:
-          console.error('oops')
+    countrySet.add(dataset[i].country)
+  }
+  const countries = Array.from(countrySet) // JSON doesn't like Set so it has to be converted to Array
+  return countries
+}
+
+async function getCountry(ip = '141.89.221.243') {
+  if (ip === '::1') {
+    ip = '141.89.221.243'
+  }
+  let country = 'Germany'
+  let continent = 'Europe'
+  await axios
+    .get(
+      `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.API_KEY}&ip=${ip}`
+    )
+    .then(response => {
+      if (response && response.data && response.data.country_code2) {
+        country = response.data.country_name
+        continent = response.data.continent_name
       }
     })
-  }
-  console.log(totalResult, dividedResult)
-  return [totalResult, dividedResult]
+    .catch(error => {
+      console.error('error:', error)
+    })
+
+  return { country, continent }
 }
 
 module.exports = router

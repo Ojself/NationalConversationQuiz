@@ -30,7 +30,7 @@ export default {
 
   getStatistics() {
     return service
-      .get('/statistics')
+      .get(`/statistics`)
       .then(res => res.data)
       .catch(errHandler)
   },

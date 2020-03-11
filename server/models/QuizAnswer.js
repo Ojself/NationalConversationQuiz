@@ -9,10 +9,14 @@ const quizAnswerSchema = new mongoose.Schema({
     type: String,
     default: 'Germany',
   },
+  continent: {
+    type: String,
+    default: 'Europe',
+  },
 
   answers: {
     type: Array,
-    default: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    default: [0, 1, 2, 0, 1, 2, 0, 1, 2, 0],
   },
 })
 

@@ -20,13 +20,13 @@ const Quiz = () => {
   const currentProgress = useSelector(state => state.progress)
 
   return (
-    <div style={quizStyle.container} className="">
+    <div style={quizStyle.container}>
       <Background src={questionsData[currentProgress].img} />
       <div
         style={quizStyle.contentContainer}
         className="d-flex flex-column align-items-center justify-content-center"
       >
-        <Progress />
+        <Progress /> {/* make two divs */}
         <Question text={questionsData[currentProgress].question} />
         {questionsData[currentProgress].answers.map((q, i) => (
           <div

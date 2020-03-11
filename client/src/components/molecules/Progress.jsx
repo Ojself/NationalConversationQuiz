@@ -5,7 +5,7 @@ const Progress = () => {
   const progressValue = useSelector(state => state.progress)
 
   return (
-    <div style={progressStyle.container} className="">
+    <div style={progressStyle.container}>
       <p style={progressStyle.text}>{progressValue + 1}/10</p>
     </div>
   )
@@ -14,7 +14,7 @@ const Progress = () => {
 const progressStyle = {
   container: {
     backgroundColor: '#ffffff',
-    margin: 'auto',
+
     color: '#fab701',
   },
   text: {

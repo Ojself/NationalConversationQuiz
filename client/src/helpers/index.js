@@ -83,3 +83,73 @@ export const calculateResultIndex = userScore => {
   // failsafe. It will never go here
   return '2'
 }
+
+export const calculateTotalData = (dataset, countryFilter) => {
+  const totalResult = [0, 0, 0]
+  console.log(dataset)
+
+  if (countryFilter !== 'all') {
+    dataset = dataset.filter(d => {
+      return d.country.toLowerCase() === countryFilter
+    })
+  }
+  console.log(dataset, 'filter')
+  for (let i = 0; i < dataset.length; i++) {
+    dataset[i].answers.forEach((a, j) => {
+      switch (a) {
+        case 0:
+          totalResult[0] += 1
+          break
+        case 1:
+          totalResult[1] += 1
+          break
+        case 2:
+          totalResult[2] += 1
+          break
+        default:
+          console.error('oops -->', a)
+      }
+    })
+  }
+
+  return totalResult
+}
+
+export const calculateDividedData = (dataset, countryFilter, qIndex = 1) => {
+  const dividedResult = [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ]
+
+  if (countryFilter !== 'all') {
+    dataset = dataset.filter(d => {
+      return d.country.toLowerCase() === countryFilter
+    })
+  }
+  for (let i = 0; i < dataset.length; i++) {
+    dataset[i].answers.forEach((a, j) => {
+      switch (a) {
+        case 0:
+          dividedResult[j][0] += 1
+          break
+        case 1:
+          dividedResult[j][1] += 1
+          break
+        case 2:
+          dividedResult[j][2] += 1
+          break
+        default:
+          console.error('oops -->', a)
+      }
+    })
+  }
+  return dividedResult[qIndex]
+}
