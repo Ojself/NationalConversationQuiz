@@ -19,25 +19,43 @@ const Results = () => {
   console.log(resultInformation, 'resultInformation')
 
   return (
-    <div>
+    <div style={resultStyle.container}>
       <Background src={resultInformation.data.img} />
-      <CharacterInformation info={resultInformation.data} />
-      <div className="d-flex justify-content-center">
-        <FacebookShareButton
-          quote={`${resultInformation.data.caption}`}
-          url={resultInformation.urlSharing}
-        >
-          <FacebookIcon size={100} round={true}></FacebookIcon>
-        </FacebookShareButton>
-        <TwitterShareButton
-          title={`${resultInformation.data.caption}`}
-          url={resultInformation.urlSharing}
-        >
-          <TwitterIcon size={100} round={true} />
-        </TwitterShareButton>
+      <div
+        style={resultStyle.contentContainer}
+        className="d-flex flex-column justify-content-center"
+      >
+        <CharacterInformation info={resultInformation.data} />
+        <div className="d-flex flex-row justify-content-center">
+          <FacebookShareButton
+            className="mr-5"
+            quote={`${resultInformation.data.caption}`}
+            url={resultInformation.urlSharing}
+          >
+            <FacebookIcon size={100} round={true}></FacebookIcon>
+          </FacebookShareButton>
+          <TwitterShareButton
+            className="ml-5"
+            title={`${resultInformation.data.caption}`}
+            url={resultInformation.urlSharing}
+          >
+            <TwitterIcon size={100} round={true} />
+          </TwitterShareButton>
+        </div>
       </div>
     </div>
   )
+}
+
+const resultStyle = {
+  container: {
+    maxWidth: '80%',
+    margin: '0 auto',
+  },
+  contentContainer: {
+    maxWidth: '60%',
+    margin: '0 auto',
+  },
 }
 
 export default Results

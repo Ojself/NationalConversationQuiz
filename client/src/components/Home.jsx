@@ -1,14 +1,16 @@
 import React from 'react'
 import Background from './molecules/Background'
-import './Pages.scss'
 import { Link } from 'react-router-dom'
 
 import { Button } from 'reactstrap'
 const Home = () => {
   return (
-    <div className=" ">
-      <Background src={`../../assets/top_imgs/top_img_00.png`} />
-      <div className="d-flex flex-column align-items-center">
+    <div style={homeStyle.container}>
+      <Background src={`../../assets/top_imgs/top_img_00@2x.png`} />
+      <div
+        style={homeStyle.contentContainer}
+        className="d-flex flex-column align-items-center"
+      >
         <img src="../../assets/promoNbubble.png" alt="NSW defacto" />
         <p style={homeStyle.text}>National Conversation Week</p>
         <p style={homeStyle.text}>Financial Personality quiz</p>
@@ -21,6 +23,14 @@ const Home = () => {
 }
 
 const homeStyle = {
+  container: {
+    maxWidth: '80%',
+    margin: '0 auto',
+  },
+  contentContainer: {
+    maxWidth: '60%',
+    margin: '0 auto',
+  },
   text: {
     fontSize: '2vmin',
     color: '#5c5c5c',
