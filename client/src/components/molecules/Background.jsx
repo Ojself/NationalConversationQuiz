@@ -12,7 +12,7 @@ const Background = props => {
 }
 
 const backgroundStyle = {
-  width: '80%',
+  width: '100%',
   height: 'auto',
 }
 

@@ -45,9 +45,7 @@ const NextButton = props => {
         FINISH
       </Link>
     )
-  return (
-    <div className="container d-flex justify-content-center ">{buttons}</div>
-  )
+  return <div className="  d-flex justify-content-center ">{buttons}</div>
 }
 
 const buttonsStyle = {

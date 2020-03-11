@@ -9,7 +9,7 @@ export const questionsData = [
       `I set my calendar to remind me – although my adviser normally gets there first!`,
       `I don't - I just let my insurance auto-renew for convience`,
     ],
-    img: `../../assets/top_imgs/top_img_1.png`,
+    img: `../../assets/top_imgs/top_img_1@2x.png`,
   },
   {
     // Q2
@@ -19,7 +19,7 @@ export const questionsData = [
       `Independent financial ratings companies`,
       `I don’t bother comparing. I just pick who I like`,
     ],
-    img: `../../assets/top_imgs/top_img_2.png`,
+    img: `../../assets/top_imgs/top_img_2@2x.png`,
   },
   {
     // Q3
@@ -29,7 +29,7 @@ export const questionsData = [
       `The type/breadth of cover. It’s really important to me that I have a policy I know meets my needs.`,
       `I value my time above all else, so I normally just pick one of the first policies I see.`,
     ],
-    img: `../../assets/top_imgs/top_img_3.png`,
+    img: `../../assets/top_imgs/top_img_3@2x.png`,
   },
   {
     // Q4
@@ -39,7 +39,7 @@ export const questionsData = [
       `Not to worry, I know that my insurance covers it! `,
       ` Use this as an excuse to get that new mobile I’ve had my eye on…`,
     ],
-    img: `../../assets/top_imgs/top_img_4.png`,
+    img: `../../assets/top_imgs/top_img_4@2x.png`,
   },
   {
     // Q5
@@ -49,7 +49,7 @@ export const questionsData = [
       `Yes – I thought I’d ask for help from the experts!`,
       `No - I am not really interested in looking at my financial situation`,
     ],
-    img: `../../assets/top_imgs/top_img_5.png`,
+    img: `../../assets/top_imgs/top_img_5@2x.png`,
   },
   {
     // Q6
@@ -59,7 +59,7 @@ export const questionsData = [
       `Quite regularly, at least once every week or two`,
       `After I’ve just been paid, or to see why my card has been declined`,
     ],
-    img: `../../assets/top_imgs/top_img_6.png`,
+    img: `../../assets/top_imgs/top_img_6@2x.png`,
   },
   {
     // Q7
@@ -69,7 +69,7 @@ export const questionsData = [
       `Maybe, but I’d like to check the online reviews first to find out more`,
       `Yes! I need it!  `,
     ],
-    img: `../../assets/top_imgs/top_img_7.png`,
+    img: `../../assets/top_imgs/top_img_7@2x.png`,
   },
   {
     // Q8
@@ -79,7 +79,7 @@ export const questionsData = [
       `“You get what you pay for; if it sounds too good to be true, it probably is.”`,
       `“Mo’ money, mo’ problems.”`,
     ],
-    img: `../../assets/top_imgs/top_img_8.png`,
+    img: `../../assets/top_imgs/top_img_8@2x.png`,
   },
   {
     // Q9
@@ -89,7 +89,7 @@ export const questionsData = [
       `Clubbing together to buy something special that will last`,
       `Do what you always do – order something at the last minute and pay extra for very speedy delivery!`,
     ],
-    img: `../../assets/top_imgs/top_img_9.png`,
+    img: `../../assets/top_imgs/top_img_9@2x.png`,
   },
   {
     // Q10
@@ -99,6 +99,6 @@ export const questionsData = [
       `I always make a meal plan and shopping list so that I come home with exactly what I need for the week`,
       `I tend to buy whatever I feel like eating at the time – or treat myself to a takeaway`,
     ],
-    img: `../../assets/top_imgs/top_img_10.png`,
+    img: `../../assets/top_imgs/top_img_10@2x.png`,
   },
 ]

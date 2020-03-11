@@ -1,18 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
-}
-
-.info {
-  margin: 20px;
-  padding: 10px 20px;
-  border-radius: 10px;
-  display: inline-block;
-  background-color: #5776e9;
-  color: white;
-}
-
-.info.info-danger {
-  background-color: #e73f3f;
+  font-family: 'Lato';
 }

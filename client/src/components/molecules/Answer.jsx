@@ -10,10 +10,6 @@ const Answer = props => {
   const answerStyle = {
     container: {
       backgroundColor,
-
-      minHeight: '10vmin',
-      maxWidth: '66vmin',
-      minWidth: '66vmin',
       paddingTop: '3%',
       paddingLeft: '12%',
       paddingRight: '12%',
@@ -24,7 +20,7 @@ const Answer = props => {
   }
 
   return (
-    <div className="container">
+    <div className="">
       <div
         style={answerStyle.container}
         className="d-flex text-center justify-content-center my-2 "

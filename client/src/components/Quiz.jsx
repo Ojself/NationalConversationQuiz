@@ -20,13 +20,17 @@ const Quiz = () => {
   const currentProgress = useSelector(state => state.progress)
 
   return (
-    <div className="container">
+    <div style={quizStyle.container} className="">
       <Background src={questionsData[currentProgress].img} />
-      <div className="d-flex flex-column align-items-center justify-content-center">
+      <div
+        style={quizStyle.contentContainer}
+        className="d-flex flex-column align-items-center justify-content-center"
+      >
         <Progress />
         <Question text={questionsData[currentProgress].question} />
         {questionsData[currentProgress].answers.map((q, i) => (
           <div
+            style={{ width: '100%' }}
             key={i}
             onClick={() => {
               dispatch(selectedAnswer(i))
@@ -39,6 +43,17 @@ const Quiz = () => {
       </div>
     </div>
   )
+}
+
+const quizStyle = {
+  container: {
+    maxWidth: '80%',
+    margin: '0 auto',
+  },
+  contentContainer: {
+    maxWidth: '60%',
+    margin: '0 auto',
+  },
 }
 
 export default Quiz

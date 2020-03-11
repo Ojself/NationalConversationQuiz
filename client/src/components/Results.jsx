@@ -19,7 +19,7 @@ const Results = () => {
   console.log(resultInformation, 'resultInformation')
 
   return (
-    <div className="container">
+    <div>
       <Background src={resultInformation.data.img} />
       <CharacterInformation info={resultInformation.data} />
       <div className="d-flex justify-content-center">
