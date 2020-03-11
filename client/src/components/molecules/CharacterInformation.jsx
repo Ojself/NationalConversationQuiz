@@ -4,7 +4,7 @@ const CharacterInformation = props => {
   const { name, caption, text, footer } = props.info
 
   return (
-    <div>
+    <div style={characterInformationStyle.container}>
       <p className="text-warning mt-5">
         <strong>You Are</strong>
       </p>
@@ -21,7 +21,12 @@ const CharacterInformation = props => {
 }
 
 const characterInformationStyle = {
-  container: {},
+  container: {
+    backgroundColor: 'white',
+    height: '100%',
+    maxWidth: '65%',
+    margin: '0 auto',
+  },
   name: {
     color: '#5c5c5c',
   },

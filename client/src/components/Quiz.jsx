@@ -47,7 +47,9 @@ const Quiz = () => {
 
 const quizStyle = {
   container: {
-    maxWidth: '80%',
+    backgroundColor: 'white',
+    height: '100%',
+    maxWidth: '55%',
     margin: '0 auto',
   },
   contentContainer: {

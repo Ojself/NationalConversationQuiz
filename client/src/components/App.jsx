@@ -6,8 +6,12 @@ import Results from './Results'
 import Statistics from './Statistics'
 
 const App = () => {
+  const appStyle = {
+    height: '100vh',
+    backgroundColor: '#f9f9f2',
+  }
   return (
-    <div>
+    <div style={appStyle}>
       <Switch>
         <Route path="/results" component={Results} />
         <Route path="/statistics" component={Statistics} />
