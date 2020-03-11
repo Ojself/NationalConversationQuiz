@@ -135,18 +135,20 @@ const Statistics = () => {
         <div className="d-flex flex-column">
           <Doughnut height={75} data={totalData} />
           <Button
-            className="btn-success"
+            className="btn-success mt-5"
             style={{ width: '20%', margin: '0 auto' }}
             onClick={() => handleReset()}
           >
             Reset
           </Button>
-          <Form className="">
+          <Form style={{ margin: '0 auto' }} className="w-25 mt-5">
+            <span>Filter by question</span>
             <Select
               value={statsState.selectedQuestionOption}
               onChange={handleQuestionChange}
               options={statsState.loading ? '' : statsState.massagedQuestions}
             />
+            <span>Filter by country</span>
             <Select
               value={statsState.selectedCountryOption}
               onChange={handleCountryChange}
