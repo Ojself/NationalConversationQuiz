@@ -12,13 +12,10 @@ import Question from './molecules/Question'
 import Answer from './molecules/Answer'
 import NextButton from './molecules/NextButton'
 
-/* store selected answer and set in store */
-
 const Quiz = () => {
   const dispatch = useDispatch()
 
   const currentProgress = useSelector(state => state.progress)
-
   return (
     <div style={quizStyle.container}>
       <Background src={questionsData[currentProgress].img} />
