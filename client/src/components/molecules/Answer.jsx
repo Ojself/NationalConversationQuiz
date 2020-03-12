@@ -20,7 +20,7 @@ const Answer = props => {
   }
 
   return (
-    <div className="">
+    <div>
       <div
         style={answerStyle.container}
         className="d-flex text-center justify-content-center my-2 "

@@ -18,11 +18,11 @@ const QuizAnswer = require('../models/QuizAnswer')
 require('../configs/database')
 
 const mockAnswers = []
-for (let i = 0; i < 50; i++) {
+for (let i = 0; i < 200; i++) {
   mockAnswers.push({
     dateCompleted: getRandomDate(),
     country: getRandomCountry(),
-    /* continent: getRandomContinent(), */
+    continent: getRandomContinent(),
     answers: getRandomAnswers(),
   })
 }
