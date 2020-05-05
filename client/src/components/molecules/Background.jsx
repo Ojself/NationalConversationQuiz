@@ -17,7 +17,7 @@ const allImages = [
   './assets/results_imgs/Savvy_Sam@2x.png',
 ]
 
-const Background = props => {
+const Background = (props) => {
   const propsImage = props.src
   console.log(props.src)
   return (
@@ -49,6 +49,7 @@ const backgroundStyle = {
   show: {
     width: '100%',
     height: 'auto',
+    maxHeight: '30%',
   },
 }
 
