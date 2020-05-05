@@ -3,7 +3,7 @@
 export const questionsData = [
   {
     // Q1
-    question: `Which of the following best describes how early you typically start shopping around when it comes to renewing your insurance policies?  `,
+    question: `Which of the following best describes how early you typically start shopping around when it comes to renewing your insurance policies?`,
     answers: [
       `When I get an email reminder from my current insurer or a comparison site`,
       `I set my calendar to remind me – although my adviser normally gets there first!`,
@@ -13,7 +13,7 @@ export const questionsData = [
   },
   {
     // Q2
-    question: `Which of the following are you most likely to use to compare insurance policies?`,
+    question: `Which of the following are you most likely to use to compare financial products (such as home or car insurance policies)?`,
     answers: [
       `Price comparison websites`,
       `Independent financial ratings companies`,
@@ -63,11 +63,11 @@ export const questionsData = [
   },
   {
     // Q7
-    question: `You see an item in a shop that you really want. Do you buy it?`,
+    question: `You read an article that says some people’s finances will take a hit due to the current Coronavirus situation. How do you respond?`,
     answers: [
-      `I will if it’s on sale or within my spending budget…`,
-      `Maybe, but I’d like to check the online reviews first to find out more`,
-      `Yes! I need it!  `,
+      `Quickly cancel as many of your paid-for subscriptions, services, financial products and insurance policies that you can think of`,
+      `Call a financial adviser to discuss how you might be affected financially, and ask for their recommendations on which products you definitely need and which you should consider changing`,
+      `I don’t do anything right now – I’ll keep it in mind and see what happens in the longer term`,
     ],
     img: `../../assets/top_imgs/top_img_7@2x.png`,
   },
@@ -83,17 +83,17 @@ export const questionsData = [
   },
   {
     // Q9
-    question: `A birthday is coming up, and your friends are discussing what to get as a present. Which of the following are you most likely to suggest?`,
+    question: `A birthday is coming up during the lockdown, and your group of friends is discussing what to get as a present. Which of the following are you most likely to suggest?`,
     answers: [
-      `Getting crafty and making something – it’s thrifty and heartfelt!`,
-      `Clubbing together to buy something special that will last`,
-      `Do what you always do – order something at the last minute and pay extra for very speedy delivery!`,
+      `Using your social distancing spare time to get crafty and make something, coupled with a surprise Zoom party. It’s thrifty and heartfelt!`,
+      `Clubbing together to buy a special group experience for when the lockdown is over`,
+      `Do what you always do – order something online at the last minute and pay extra for very speedy delivery!`,
     ],
     img: `../../assets/top_imgs/top_img_9@2x.png`,
   },
   {
     // Q10
-    question: `Which of these is closest to how you do your food shopping? `,
+    question: `Which of these is closest to how you would normally do your food shopping (before social distancing)?`,
     answers: [
       `I scour the shelves for discounted items and buy the cheapest of everything I need to keep costs down`,
       `I always make a meal plan and shopping list so that I come home with exactly what I need for the week`,
