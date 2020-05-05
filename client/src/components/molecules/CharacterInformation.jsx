@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CharacterInformation = props => {
+const CharacterInformation = (props) => {
   const { name, caption, text, footer } = props.info
 
   return (
@@ -8,9 +8,7 @@ const CharacterInformation = props => {
       <p className="text-warning mt-5">
         <strong>You Are</strong>
       </p>
-      <p style={characterInformationStyle.name} className="display-4">
-        {name}
-      </p>
+      <p className="result-name">{name}</p>
       <p style={characterInformationStyle.caption} className="text-warning">
         {caption}
       </p>
@@ -27,9 +25,7 @@ const characterInformationStyle = {
     maxWidth: '65%',
     margin: '0 auto',
   },
-  name: {
-    color: '#5c5c5c',
-  },
+
   caption: {
     fontSize: '2.2vmin',
     color: '#5c5c5c',

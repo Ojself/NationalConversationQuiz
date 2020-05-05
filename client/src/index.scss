@@ -24,6 +24,12 @@ body {
     min-width: 95%;
     margin: 0 auto;
   }
+  #result-name {
+    font-size: 3.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+    color: '#5c5c5c';
+  }
 }
 
 #homeStyle-container {
@@ -45,4 +51,10 @@ body {
 .header-image {
   width: 100%;
   height: auto;
+}
+#result-name {
+  font-size: 3.5rem;
+  font-weight: 300;
+  line-height: 1.2;
+  color: '#5c5c5c';
 }
