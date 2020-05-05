@@ -33,7 +33,7 @@ const Statistics = () => {
     })
   }
 
-  const handleCountryChange = selectedCountryOption => {
+  const handleCountryChange = (selectedCountryOption) => {
     const countryFilter = selectedCountryOption.value.toLowerCase()
     const massagedTotalStatisticsWithCountryFilter = calculateTotalData(
       statsState.backupStatistics,
@@ -48,7 +48,7 @@ const Statistics = () => {
     })
   }
 
-  const handleQuestionChange = selectedQuestionOption => {
+  const handleQuestionChange = (selectedQuestionOption) => {
     const qIndex = selectedQuestionOption.value || 1
     const qTitle = selectedQuestionOption.label || 'All questions'
     const countryFilter = statsState.selectedCountryOption
@@ -80,7 +80,7 @@ const Statistics = () => {
 
   useEffect(() => {
     console.log('effect')
-    api.getStatistics().then(result => {
+    api.getStatistics().then((result) => {
       console.log(result, 'result')
       const massagedCountries = countryDataMassager(result.countries)
       const massagedQuestions = questionDataMassager(questionsData)
@@ -100,9 +100,9 @@ const Statistics = () => {
     })
   }, [])
 
-  const countryDataMassager = array => {
+  const countryDataMassager = (array) => {
     const massagedCountries = [{ value: 'all', label: 'All countries' }]
-    array.forEach(c => {
+    array.forEach((c) => {
       massagedCountries.push({
         value: c,
         label: c,
@@ -112,7 +112,7 @@ const Statistics = () => {
     return massagedCountries
   }
 
-  const questionDataMassager = array => {
+  const questionDataMassager = (array) => {
     const massagedQuestions = [{ value: 'all', label: 'All questions' }]
     array.forEach((q, i) => {
       let questionNumber = i + 1
@@ -139,7 +139,7 @@ const Statistics = () => {
             style={{ width: '20%', margin: '0 auto' }}
             onClick={() => handleReset()}
           >
-            Reset
+            Reset filters
           </Button>
           <Form style={{ margin: '0 auto' }} className="w-25 mt-5">
             <span>Filter by question</span>
