@@ -4,12 +4,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Lato';
+  background-color: #f9f9f2;
 }
 
 @media only screen and (max-width: 848px) {
   .header-image {
     width: 100%;
     height: auto;
+    background-size: cover;
     max-height: 250px;
   }
   #homeStyle-container {
