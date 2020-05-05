@@ -19,7 +19,7 @@ const allImages = [
 
 const Background = (props) => {
   const propsImage = props.src
-  console.log(props.src)
+
   return (
     <div className="d-flex justify-content-center">
       {allImages.map((img, i) => {
@@ -49,7 +49,7 @@ const backgroundStyle = {
   show: {
     width: '100%',
     height: 'auto',
-    maxHeight: '30%',
+    maxHeight: '250px',
   },
 }
 
