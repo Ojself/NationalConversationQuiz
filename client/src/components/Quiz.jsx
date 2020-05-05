@@ -16,6 +16,7 @@ const Quiz = () => {
   const dispatch = useDispatch()
 
   const currentProgress = useSelector((state) => state.progress)
+
   return (
     <div className="ncwContainer">
       <Background src={questionsData[currentProgress].img} />
@@ -38,18 +39,5 @@ const Quiz = () => {
     </div>
   )
 }
-
-/* const quizStyle = {
-  container: {
-    backgroundColor: 'white',
-    height: '100%',
-    maxWidth: '55%',
-    margin: '0 auto',
-  },
-  contentContainer: {
-    maxWidth: '60%',
-    margin: '0 auto',
-  },
-} */
 
 export default Quiz

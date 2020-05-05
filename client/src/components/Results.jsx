@@ -41,17 +41,4 @@ const Results = () => {
   )
 }
 
-const resultStyle = {
-  /* container: {
-    backgroundColor: 'white',
-    height: '100%',
-    maxWidth: '55%',
-    margin: '0 auto',
-  }, */
-  /* contentContainer: {
-    maxWidth: '60%',
-    margin: '0 auto',
-  }, */
-}
-
 export default Results

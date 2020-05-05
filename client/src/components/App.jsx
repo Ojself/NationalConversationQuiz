@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import { Route, Switch } from 'react-router-dom'
 import Quiz from './Quiz'
 import Home from './Home'
@@ -7,8 +8,15 @@ import Statistics from './Statistics'
 
 const App = () => {
   const appStyle = {
-    height: '120vh',
+    height: '100vh',
     backgroundColor: '#f9f9f2',
+  }
+  const currentProgress = useSelector((state) => state.progress)
+  //  fix for short page on q7 and q9
+  if (currentProgress === 6 || currentProgress === 8) {
+    appStyle.height = '120vh'
+  } else {
+    appStyle.height = '100vh'
   }
   return (
     <div style={appStyle}>
