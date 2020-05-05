@@ -5,3 +5,42 @@ body {
   padding: 0;
   font-family: 'Lato';
 }
+
+@media only screen and (max-width: 848px) {
+  .header-image {
+    width: 100%;
+    height: auto;
+    max-height: 250px;
+  }
+  #homeStyle-container {
+    background-color: white;
+    height: 100%;
+    min-width: 80%;
+    margin: 0 auto;
+  }
+  #homeStyle-contentContainer {
+    min-width: 95%;
+    margin: 0 auto;
+  }
+}
+
+#homeStyle-container {
+  background-color: white;
+  height: 100%;
+  max-width: 55%;
+  margin: 0 auto;
+}
+
+#homeStyle-contentContainer {
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.header-image-hide {
+  width: 0%;
+  height: 0%;
+}
+.header-image {
+  width: 100%;
+  height: auto;
+}

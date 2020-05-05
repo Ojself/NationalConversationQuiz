@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Background from './molecules/Background'
 import { Link } from 'react-router-dom'
 import { Button } from 'reactstrap'
@@ -7,10 +8,10 @@ import api from '../api'
 
 const Home = () => {
   return (
-    <div style={homeStyle.container}>
+    <div id="homeStyle-container">
       <Background src={`../../assets/top_imgs/top_img_00@2x.png`} />
       <div
-        style={homeStyle.contentContainer}
+        id="homeStyle-contentContainer"
         className="d-flex flex-column align-items-center my-5"
       >
         <img
@@ -37,16 +38,6 @@ const Home = () => {
 }
 
 const homeStyle = {
-  container: {
-    backgroundColor: 'white',
-    height: '100%',
-    maxWidth: '55%',
-    margin: '0 auto',
-  },
-  contentContainer: {
-    maxWidth: '60%',
-    margin: '0 auto',
-  },
   img: {
     width: '40%',
     height: 'auto',

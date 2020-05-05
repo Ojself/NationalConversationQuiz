@@ -26,10 +26,8 @@ const Background = (props) => {
         return (
           <img
             key={i}
-            style={
-              propsImage.includes(img)
-                ? backgroundStyle.show
-                : backgroundStyle.hide
+            class={
+              propsImage.includes(img) ? 'header-image' : 'header-image-hide'
             }
             src={img}
             alt="Header Image"
@@ -39,18 +37,6 @@ const Background = (props) => {
       {/* <img style={backgroundStyle} src={imageSrc} alt="Header Image" /> */}
     </div>
   )
-}
-
-const backgroundStyle = {
-  hide: {
-    width: '0%',
-    height: '0%',
-  },
-  show: {
-    width: '100%',
-    height: 'auto',
-    maxHeight: '250px',
-  },
 }
 
 export default Background
