@@ -12,9 +12,9 @@ const allImages = [
   './assets/top_imgs/top_img_8@2x.png',
   './assets/top_imgs/top_img_9@2x.png',
   './assets/top_imgs/top_img_10@2x.png',
-  './assets/results_imgs/Budget_Bobby@2x.png',
-  './assets/results_imgs/Laudback_Lee@2x.png',
-  './assets/results_imgs/Savvy_Sam@2x.png',
+  './assets/top_imgs/Budget_Bobby@2x.png',
+  './assets/top_imgs/Laudback_Lee@2x.png',
+  './assets/top_imgs/Savvy_Sam@2x.png',
 ]
 
 const Background = (props) => {
