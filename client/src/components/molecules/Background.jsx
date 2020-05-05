@@ -26,7 +26,7 @@ const Background = (props) => {
         return (
           <img
             key={i}
-            class={
+            className={
               propsImage.includes(img) ? 'header-image' : 'header-image-hide'
             }
             src={img}
