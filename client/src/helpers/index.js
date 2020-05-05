@@ -1,6 +1,6 @@
 /* Calculates the index of 3 different results based upon the users answers */
 import { resultData } from '../data/results'
-export const determineCharacter = score => {
+export const determineCharacter = (score) => {
   /* const characterNames = ['budgetbobby' 'savvysam', 'laidbacklee']
   const const url = window.location.href.toLowerCase()
   let tempIndex
@@ -26,12 +26,12 @@ export const determineCharacter = score => {
 }
 
 // Gives back index of most chosen character in string format
-export const calculateResultIndex = userScore => {
+export const calculateResultIndex = (userScore) => {
   const h = {} //
   if (userScore.length < 1 || !userScore) {
     userScore = [1, 2, 0, 2, 1, 2, 1, 0, 1, 1]
   }
-  userScore.forEach(a => {
+  userScore.forEach((a) => {
     if (h[a] === undefined) {
       h[a] = 0
     }
@@ -44,8 +44,6 @@ export const calculateResultIndex = userScore => {
   sorted.sort((a, b) => {
     return b[1] - a[1]
   })
-
-  console.log(sorted.length, 'sorted') // if all is the same
 
   const firstKey = sorted[0][0]
   if (!sorted[1]) {
@@ -86,14 +84,13 @@ export const calculateResultIndex = userScore => {
 
 export const calculateTotalData = (dataset, countryFilter) => {
   const totalResult = [0, 0, 0]
-  console.log(dataset)
 
   if (countryFilter !== 'all') {
-    dataset = dataset.filter(d => {
+    dataset = dataset.filter((d) => {
       return d.country.toLowerCase() === countryFilter
     })
   }
-  console.log(dataset, 'filter')
+
   for (let i = 0; i < dataset.length; i++) {
     dataset[i].answers.forEach((a, j) => {
       switch (a) {
@@ -130,7 +127,7 @@ export const calculateDividedData = (dataset, countryFilter, qIndex = 1) => {
   ]
 
   if (countryFilter !== 'all') {
-    dataset = dataset.filter(d => {
+    dataset = dataset.filter((d) => {
       return d.country.toLowerCase() === countryFilter
     })
   }

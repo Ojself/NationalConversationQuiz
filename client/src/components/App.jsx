@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Route, Switch } from 'react-router-dom'
 import Quiz from './Quiz'
 import Home from './Home'
@@ -7,7 +7,7 @@ import Statistics from './Statistics'
 
 const App = () => {
   const appStyle = {
-    height: '100vh',
+    height: '120vh',
     backgroundColor: '#f9f9f2',
   }
   return (

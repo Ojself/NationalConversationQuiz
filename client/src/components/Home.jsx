@@ -8,12 +8,9 @@ import api from '../api'
 
 const Home = () => {
   return (
-    <div id="homeStyle-container">
+    <div className="ncwContainer">
       <Background src={`../../assets/top_imgs/top_img_00@2x.png`} />
-      <div
-        id="homeStyle-contentContainer"
-        className="d-flex flex-column align-items-center my-5"
-      >
+      <div className="d-flex flex-column align-items-center my-5 ncwContentContainer">
         <img
           style={homeStyle.img}
           src="../../assets/promoNbubble@2x.png"

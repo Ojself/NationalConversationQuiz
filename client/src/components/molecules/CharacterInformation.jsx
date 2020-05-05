@@ -5,10 +5,10 @@ const CharacterInformation = (props) => {
 
   return (
     <div style={characterInformationStyle.container}>
-      <p className="text-warning mt-5">
+      <p className="text-warning mt-5 ">
         <strong>You Are</strong>
       </p>
-      <p className="result-name">{name}</p>
+      <p id="result-name">{name}</p>
       <p style={characterInformationStyle.caption} className="text-warning">
         {caption}
       </p>

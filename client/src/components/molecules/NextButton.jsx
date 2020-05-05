@@ -7,20 +7,18 @@ import { Button } from 'reactstrap'
 
 import api from '../../api'
 
-const sendDataToDb = async score => {
+const sendDataToDb = async (score) => {
   // api
-  console.log(score, 'api')
 
   return api.postScore(score)
 }
 
-const NextButton = props => {
+const NextButton = (props) => {
   const { currentProgress } = props
   const dispatch = useDispatch()
 
-  const scoreFromState = useSelector(state => state.addScore)
-  const selectedAnswer = useSelector(state => state.selectedAnswer)
-  console.log(selectedAnswer, 'selected')
+  const scoreFromState = useSelector((state) => state.addScore)
+  const selectedAnswer = useSelector((state) => state.selectedAnswer)
 
   const buttons =
     currentProgress < 9 ? (

@@ -13,18 +13,14 @@ import {
 } from 'react-share'
 
 const Results = () => {
-  const scoreFromState = useSelector(state => state.addScore)
+  const scoreFromState = useSelector((state) => state.addScore)
   const resultInformation = determineCharacter(scoreFromState)
 
-  console.log(resultInformation, 'resultInformation')
-
   return (
-    <div
-      style={resultStyle.container}
-      className="d-flex flex-column justify-content-center"
-    >
+    <div className="d-flex flex-column justify-content-center ncwContainer">
       <Background src={resultInformation.data.img} />
       <CharacterInformation info={resultInformation.data} />
+
       <div className="d-flex flex-row justify-content-center">
         <FacebookShareButton
           className="mr-5"
@@ -46,16 +42,16 @@ const Results = () => {
 }
 
 const resultStyle = {
-  container: {
+  /* container: {
     backgroundColor: 'white',
     height: '100%',
     maxWidth: '55%',
     margin: '0 auto',
-  },
-  contentContainer: {
+  }, */
+  /* contentContainer: {
     maxWidth: '60%',
     margin: '0 auto',
-  },
+  }, */
 }
 
 export default Results

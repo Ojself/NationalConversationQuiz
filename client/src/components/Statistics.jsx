@@ -54,7 +54,7 @@ const Statistics = () => {
     const countryFilter = statsState.selectedCountryOption
       ? statsState.selectedCountryOption
       : 'all'
-    console.log(qIndex, qTitle, countryFilter)
+
     const massagedDividedStatisticsWithCountryFilter = calculateDividedData(
       statsState.backupStatistics,
       countryFilter,
@@ -79,9 +79,7 @@ const Statistics = () => {
   }
 
   useEffect(() => {
-    console.log('effect')
     api.getStatistics().then((result) => {
-      console.log(result, 'result')
       const massagedCountries = countryDataMassager(result.countries)
       const massagedQuestions = questionDataMassager(questionsData)
       const massagedTotalStatistics = calculateTotalData(
@@ -108,7 +106,7 @@ const Statistics = () => {
         label: c,
       })
     })
-    console.log(massagedCountries)
+
     return massagedCountries
   }
 

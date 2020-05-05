@@ -15,14 +15,11 @@ import NextButton from './molecules/NextButton'
 const Quiz = () => {
   const dispatch = useDispatch()
 
-  const currentProgress = useSelector(state => state.progress)
+  const currentProgress = useSelector((state) => state.progress)
   return (
-    <div style={quizStyle.container}>
+    <div className="ncwContainer">
       <Background src={questionsData[currentProgress].img} />
-      <div
-        style={quizStyle.contentContainer}
-        className="d-flex flex-column align-items-center justify-content-center"
-      >
+      <div className="d-flex flex-column align-items-center justify-content-center ncwContentContainer">
         <Progress />
         <Question text={questionsData[currentProgress].question} />
         {questionsData[currentProgress].answers.map((q, i) => (
@@ -42,7 +39,7 @@ const Quiz = () => {
   )
 }
 
-const quizStyle = {
+/* const quizStyle = {
   container: {
     backgroundColor: 'white',
     height: '100%',
@@ -53,6 +50,6 @@ const quizStyle = {
     maxWidth: '60%',
     margin: '0 auto',
   },
-}
+} */
 
 export default Quiz
