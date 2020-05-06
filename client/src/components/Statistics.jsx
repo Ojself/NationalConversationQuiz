@@ -60,6 +60,7 @@ const Statistics = () => {
   }
 
   const handleQuestionChange = (selectedQuestionOption) => {
+    console.log(selectedQuestionOption, 'selectedQuestionOption')
     const qIndex = selectedQuestionOption.value || 1
     const qTitle = selectedQuestionOption.label || 'All questions'
 

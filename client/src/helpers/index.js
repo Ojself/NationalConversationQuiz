@@ -113,6 +113,7 @@ export const calculateTotalData = (dataset, countryFilter) => {
 }
 
 export const calculateDividedData = (dataset, countryFilter, qIndex = 1) => {
+  console.log(qIndex, 'qIndex')
   const dividedResult = [
     [0, 0, 0],
     [0, 0, 0],
@@ -148,5 +149,6 @@ export const calculateDividedData = (dataset, countryFilter, qIndex = 1) => {
       }
     })
   }
+
   return dividedResult[qIndex]
 }
