@@ -2,10 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { Doughnut } from 'react-chartjs-2'
 import api from '../api'
 import Select from 'react-select'
-import { Form, Button } from 'reactstrap'
+
 /* import { resultData } from '../data/results.js' */
 import { questionsData } from '../data/questions'
 import { calculateTotalData, calculateDividedData } from '../helpers'
+
+import {
+  Form,
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+} from 'reactstrap'
 
 const Statistics = () => {
   const [statsState, setStatsState] = useState({
@@ -17,6 +26,8 @@ const Statistics = () => {
     subTitle: 'All questions',
     loading: true,
   })
+  const [modal, setModal] = useState(false)
+  const toggle = () => setModal(!modal)
 
   const handleReset = () => {
     const massagedTotalStatistics = calculateTotalData(
@@ -34,7 +45,6 @@ const Statistics = () => {
   }
 
   const handleCountryChange = (selectedCountryOption) => {
-    console.log(statsState, 'cstate')
     const countryFilter = selectedCountryOption.value.toLowerCase()
     const massagedTotalStatisticsWithCountryFilter = calculateTotalData(
       statsState.backupStatistics,
@@ -50,10 +60,9 @@ const Statistics = () => {
   }
 
   const handleQuestionChange = (selectedQuestionOption) => {
-    console.log(statsState, 'qstate')
     const qIndex = selectedQuestionOption.value || 1
     const qTitle = selectedQuestionOption.label || 'All questions'
-    console.log(statsState.selectedCountryOption)
+
     const countryFilter = statsState.selectedCountryOption
       ? statsState.selectedCountryOption
       : 'all'
@@ -63,7 +72,7 @@ const Statistics = () => {
       countryFilter,
       qIndex
     )
-    console.log(massagedDividedStatisticsWithCountryFilter, '?')
+
     setStatsState({
       ...statsState,
       statisticsData: massagedDividedStatisticsWithCountryFilter,
@@ -136,14 +145,40 @@ const Statistics = () => {
       ) : (
         <div className="d-flex flex-column">
           <Doughnut height={75} data={totalData} />
+          <div className="d-flex mt-5">
+            <Button
+              style={{ height: '20%', width: '12%', margin: '0 auto' }}
+              color="danger"
+              onClick={toggle}
+            >
+              Information
+            </Button>
+            <Modal isOpen={modal} toggle={toggle}>
+              <ModalHeader toggle={toggle}>Information</ModalHeader>
+              <ModalBody>
+                Everytime a quiz has been completed, the answers are sent to a
+                database where it is stored and shown here in the statistics
+                page. You can filter the answers by individual question or by
+                the country the person is from. The country is based upon the IP
+                adress of the user and is not stored in the database. Click
+                'reset filter' to show all answers from all countries.
+              </ModalBody>
+              <ModalFooter>
+                <Button color="primary" onClick={toggle}>
+                  Ok!
+                </Button>{' '}
+              </ModalFooter>
+            </Modal>
+          </div>
+
           <Button
-            className="btn-success mt-5"
-            style={{ width: '20%', margin: '0 auto' }}
+            className="btn-success mt-3"
+            style={{ width: '12%', margin: '0 auto' }}
             onClick={() => handleReset()}
           >
             Reset filters
           </Button>
-          <Form style={{ margin: '0 auto' }} className="w-25 mt-5">
+          <Form style={{ margin: '0 auto', width: '35%' }} className="mt-5">
             <span>Filter by question</span>
             <Select
               value={statsState.selectedQuestionOption}

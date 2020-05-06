@@ -92,7 +92,7 @@ export const calculateTotalData = (dataset, countryFilter) => {
   }
 
   for (let i = 0; i < dataset.length; i++) {
-    dataset[i].answers.forEach((a, j) => {
+    dataset[i].answers.forEach((a) => {
       switch (a) {
         case 0:
           totalResult[0] += 1
@@ -104,7 +104,7 @@ export const calculateTotalData = (dataset, countryFilter) => {
           totalResult[2] += 1
           break
         default:
-          console.error('oops -->', a)
+          console.error('oops')
       }
     })
   }
@@ -113,7 +113,6 @@ export const calculateTotalData = (dataset, countryFilter) => {
 }
 
 export const calculateDividedData = (dataset, countryFilter, qIndex = 1) => {
-  console.log(dataset, countryFilter, qIndex, 'jarlskmnrlaksmrkl')
   const dividedResult = [
     [0, 0, 0],
     [0, 0, 0],
