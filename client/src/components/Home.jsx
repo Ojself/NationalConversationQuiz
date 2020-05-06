@@ -49,6 +49,7 @@ const homeStyle = {
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
+    textDecoration: 'none',
   },
   button: {
     padding: '2% 0',

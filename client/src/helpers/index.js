@@ -113,6 +113,7 @@ export const calculateTotalData = (dataset, countryFilter) => {
 }
 
 export const calculateDividedData = (dataset, countryFilter, qIndex = 1) => {
+  console.log(dataset, countryFilter, qIndex, 'jarlskmnrlaksmrkl')
   const dividedResult = [
     [0, 0, 0],
     [0, 0, 0],
@@ -128,7 +129,7 @@ export const calculateDividedData = (dataset, countryFilter, qIndex = 1) => {
 
   if (countryFilter !== 'all') {
     dataset = dataset.filter((d) => {
-      return d.country.toLowerCase() === countryFilter
+      return d.country.toLowerCase() === countryFilter.value.toLowerCase()
     })
   }
   for (let i = 0; i < dataset.length; i++) {

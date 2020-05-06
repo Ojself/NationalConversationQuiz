@@ -34,6 +34,7 @@ const Statistics = () => {
   }
 
   const handleCountryChange = (selectedCountryOption) => {
+    console.log(statsState, 'cstate')
     const countryFilter = selectedCountryOption.value.toLowerCase()
     const massagedTotalStatisticsWithCountryFilter = calculateTotalData(
       statsState.backupStatistics,
@@ -49,8 +50,10 @@ const Statistics = () => {
   }
 
   const handleQuestionChange = (selectedQuestionOption) => {
+    console.log(statsState, 'qstate')
     const qIndex = selectedQuestionOption.value || 1
     const qTitle = selectedQuestionOption.label || 'All questions'
+    console.log(statsState.selectedCountryOption)
     const countryFilter = statsState.selectedCountryOption
       ? statsState.selectedCountryOption
       : 'all'
@@ -60,6 +63,7 @@ const Statistics = () => {
       countryFilter,
       qIndex
     )
+    console.log(massagedDividedStatisticsWithCountryFilter, '?')
     setStatsState({
       ...statsState,
       statisticsData: massagedDividedStatisticsWithCountryFilter,
