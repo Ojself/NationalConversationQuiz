@@ -13,11 +13,17 @@ const App = () => {
   }
   const currentProgress = useSelector((state) => state.progress)
   //  fix for short page on q7 and q9
-  if (currentProgress === 6 || currentProgress === 8) {
+
+  if (
+    currentProgress === 6 ||
+    currentProgress === 8 ||
+    window.location.pathname === '/results'
+  ) {
     appStyle.height = '120vh'
   } else {
     appStyle.height = '100vh'
   }
+
   return (
     <div style={appStyle}>
       <Switch>
