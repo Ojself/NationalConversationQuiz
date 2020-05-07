@@ -12,8 +12,9 @@ const App = () => {
     backgroundColor: '#f9f9f2',
   }
   const currentProgress = useSelector((state) => state.progress)
-  //  fix for short page on q7 and q9
 
+  // quick fix for divs skewering outside of view
+  // how to fix: minHeight 100vh and height auto
   if (
     currentProgress === 6 ||
     currentProgress === 8 ||

@@ -64,7 +64,7 @@ router.post('/saveAnswers', async (req, res, next) => {
     answers,
   }
   const answer = new QuizAnswer(data)
-  answer.save().then(dbResult => console.log(dbResult, 'dbResult'))
+  answer.save().then((dbResult) => console.log(dbResult, 'dbResult'))
 
   const message = 'Success, your stats has been posted!'
   res.status(201).json({
@@ -72,7 +72,7 @@ router.post('/saveAnswers', async (req, res, next) => {
   })
 })
 
-const getCountriesAvailable = dataset => {
+const getCountriesAvailable = (dataset) => {
   const countrySet = new Set()
   for (let i = 0; i < dataset.length; i++) {
     countrySet.add(dataset[i].country)
@@ -91,16 +91,16 @@ async function getCountry(ip = '141.89.221.243') {
     .get(
       `https://api.ipgeolocation.io/ipgeo?apiKey=${process.env.API_KEY}&ip=${ip}`
     )
-    .then(response => {
+    .then((response) => {
       if (response && response.data && response.data.country_code2) {
         country = response.data.country_name
         continent = response.data.continent_name
       }
     })
-    .catch(error => {
+    .catch((error) => {
       console.error('error:', error)
     })
-
+  console.log(country, continent)
   return { country, continent }
 }
 
