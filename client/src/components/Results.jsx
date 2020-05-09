@@ -21,12 +21,16 @@ const Results = () => {
       <Background src={resultInformation.data.img} />
       <CharacterInformation info={resultInformation.data} />
 
-      <div className="d-flex flex-row justify-content-center">
+      <div className="d-flex flex-row justify-content-center mt-5">
         <FacebookShareButton
           className="mr-5"
           quote={`${resultInformation.data.caption}`}
           url={resultInformation.urlSharing}
         >
+          <p class="social-share-text">
+            Share your results to Facebook and <br /> see how your friends
+            compare!
+          </p>
           <FacebookIcon size={100} round={true}></FacebookIcon>
         </FacebookShareButton>
         <TwitterShareButton
@@ -34,6 +38,7 @@ const Results = () => {
           title={`${resultInformation.data.caption}`}
           url={resultInformation.urlSharing}
         >
+          <p class="social-share-text">Post your results to Twitter!</p>
           <TwitterIcon size={100} round={true} />
         </TwitterShareButton>
       </div>

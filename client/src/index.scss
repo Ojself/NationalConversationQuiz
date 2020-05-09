@@ -8,6 +8,10 @@ body {
   font-family: 'Lato';
   background-color: #f9f9f2;
 }
+#app {
+  background: #f9f9f2;
+  height: 100%;
+}
 
 @media only screen and (max-width: 948px) {
   .header-image {
@@ -37,12 +41,15 @@ body {
 .ncwContainer {
   background-color: white;
   height: 100%;
+
   max-width: 55%;
   margin: 0 auto;
+  padding-bottom: 5vh;
 }
 
 .ncwContentContainer {
   max-width: 60%;
+  height: 100%;
   margin: 0 auto;
 }
 
@@ -59,4 +66,20 @@ body {
   font-weight: 300;
   line-height: 1.2;
   color: '#5c5c5c';
+}
+
+#footerLogo {
+  padding-top: 65px;
+  margin: 0 auto;
+  width: 8vw;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.social-share-text {
+  font-size: 1.6vmin;
+  color: #5c5c5c;
 }
