@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Route, Switch } from 'react-router-dom'
 import Quiz from './Quiz'
@@ -16,9 +16,6 @@ const App = () => {
         <Route path="/" component={Home} />
         <Route render={() => <h2>404</h2>} />
       </Switch>
-      <div id="footerLogo">
-        <img src="../../assets/NCW_logo@2x.png" alt="NCW Logo" />
-      </div>
     </div>
   )
 }

@@ -18,25 +18,30 @@ const Quiz = () => {
   const currentProgress = useSelector((state) => state.progress)
 
   return (
-    <div className="ncwContainer">
-      <Background src={questionsData[currentProgress].img} />
-      <div className="d-flex flex-column align-items-center justify-content-center ncwContentContainer">
-        <Progress />
-        <Question text={questionsData[currentProgress].question} />
-        {questionsData[currentProgress].answers.map((q, i) => (
-          <div
-            style={{ width: '100%' }}
-            key={i}
-            onClick={() => {
-              dispatch(selectedAnswer(i))
-            }}
-          >
-            <Answer order={i} text={q} />
-          </div>
-        ))}
-        <NextButton currentProgress={currentProgress} />
+    <>
+      <div className="ncwContainer">
+        <Background src={questionsData[currentProgress].img} />
+        <div className="d-flex flex-column align-items-center justify-content-center ncwContentContainer">
+          <Progress />
+          <Question text={questionsData[currentProgress].question} />
+          {questionsData[currentProgress].answers.map((q, i) => (
+            <div
+              style={{ width: '100%' }}
+              key={i}
+              onClick={() => {
+                dispatch(selectedAnswer(i))
+              }}
+            >
+              <Answer order={i} text={q} />
+            </div>
+          ))}
+          <NextButton currentProgress={currentProgress} />
+        </div>
       </div>
-    </div>
+      <div id="footerLogo">
+        <img src="../../assets/NCW_logo@2x.png" alt="NCW Logo" />
+      </div>
+    </>
   )
 }
 

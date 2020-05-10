@@ -1,21 +1,6 @@
 /* Calculates the index of 3 different results based upon the users answers */
 import { resultData } from '../data/results'
 export const determineCharacter = (score) => {
-  /* const characterNames = ['budgetbobby' 'savvysam', 'laidbacklee']
-  const const url = window.location.href.toLowerCase()
-  let tempIndex
-  if (
-    characterNames.some((c, i) => {
-      tempIndex = i
-      return url.includes(c)
-    })
-  ) {
-    return {
-      data: resultData[tempIndex],
-      urlSharing: window.location.href,
-      shared: true,
-    }
-  } */
   const resultIndex = calculateResultIndex(score)
   const data = resultData[resultIndex]
   const urlSharing = `${window.location.href}/${data.name
